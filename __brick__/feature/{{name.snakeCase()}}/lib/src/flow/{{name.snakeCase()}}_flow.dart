@@ -1,6 +1,8 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
-export 'package:{{name.snakeCase()}}/src/di/di_initializer.dart';
+import 'package:get_it/get_it.dart';
+import 'package:flow_builder/flow_builder.dart';
+import 'package:{{name.snakeCase()}}/src/di/di_initializer.dart';
 import 'package:{{name.snakeCase()}}/src/flow/{{name.snakeCase()}}_state.dart';
 
 @RoutePage(name: '{{name.pascalCase()}}Route')
@@ -27,7 +29,7 @@ class _{{name.pascalCase()}}State extends State<{{name.pascalCase()}}Flow> {
   
   @override
   Widget build(BuildContext context) {
-    return FlowBuilder<AuthState>(
+    return FlowBuilder<{{name.pascalCase()}}State>(
       controller: GetIt.I.get<FlowController<{{name.pascalCase()}}State>>(),
        onGeneratePages: (state, pages) {
         return [];
