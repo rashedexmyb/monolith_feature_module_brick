@@ -1,5 +1,7 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
+export 'package:{{name.snakeCase()}}/src/di/di_initializer.dart';
+import 'package:{{name.snakeCase()}}/src/flow/{{name.snakeCase()}}_state.dart';
 
 @RoutePage(name: '{{name.pascalCase()}}Route')
 class {{name.pascalCase()}}Flow extends StatefulWidget {
@@ -10,8 +12,26 @@ class {{name.pascalCase()}}Flow extends StatefulWidget {
 }
 
 class _{{name.pascalCase()}}State extends State<{{name.pascalCase()}}Flow> {
+
+    @override
+  void initState() {
+    super.initState();
+    initialize();
+  }
+
+  @override
+  void dispose() {
+    deinitialize();
+    super.dispose();
+  }
+  
   @override
   Widget build(BuildContext context) {
-    return Container(color: const Color(0xFFFFE306));
+    return FlowBuilder<AuthState>(
+      controller: GetIt.I.get<FlowController<{{name.pascalCase()}}State>>(),
+       onGeneratePages: (state, pages) {
+        return [];
+      },
+    );
   }
 }
