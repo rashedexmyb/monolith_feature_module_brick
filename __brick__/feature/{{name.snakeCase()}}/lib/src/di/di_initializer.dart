@@ -27,7 +27,7 @@ abstract class {{name.pascalCase()}}RegisterModule {
 /// These dependencies are scoped to the auth flow and will be disposed
 /// when the flow exits. Call this when entering the auth flow.
 void initialize() {
-  GetIt.I.pushNewScope();
+  GetIt.I.pushNewScope(scopeName: '{{name}}');
   // Scoped dependencies are automatically registered when the scope is pushed
   // Injectable-annotated classes in this package are available within this scope
 }
